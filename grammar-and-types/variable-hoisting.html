@@ -1,0 +1,23 @@
+<script>
+    /**
+     * Example 1
+     */
+    console.log(x === undefined); // true
+    var x = 3;
+
+    /**
+     * Example 2
+     */
+    var myVar = "my value";
+
+    (function () {
+        console.log(myVar); // undefined
+        var myVar = "local value";
+    })();
+
+    /**
+     * Example 3
+     */
+    console.log(y); // ReferenceError: y is not defined
+    let y = 3;
+</script>

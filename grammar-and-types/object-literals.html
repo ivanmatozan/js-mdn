@@ -1,0 +1,59 @@
+<script>
+    var sales = "Toyota";
+    
+    function carTypes(name) {
+        if (name === "Honda") {
+            return name;
+        } else {
+            return "Sorry, we don't sell " + name + ".";
+        }
+    }
+
+    var obj1 = {
+        myCar: "Saturn",
+        getCar: carTypes("Honda"),
+        special: sales
+    };
+    console.log(obj1.myCar); // "Saturn"
+    console.log(obj1.getCar); // "Honda"
+    console.log(obj1.special); // "Toyota"
+
+    var obj2 = {
+        manyCars: {
+            a: "Saab",
+            "b": "Jeep",
+            7: "Mazda"
+        }
+    };
+    console.log(obj2.manyCars.a); // "Saab"
+    console.log(obj2.manyCars["a"]); // "Saab"
+    console.log(obj2.manyCars.b); // "Jeep"
+    console.log(obj2.manyCars["b"]); // "Jeep"
+    console.log(obj2.manyCars[7]); // "Mazda
+    console.log(obj2.manyCars["7"]); // "Mazda
+
+    var obj3 = {
+        "": "An empty string",
+        "!": "Bang!"
+    };
+    // console.log(obj3.""); // SyntaxError: Unexpected string
+    console.log(obj3[""]); // "An empty string"
+    // console.log(obj3."!"); // SyntaxError: Unexpected token !
+    console.log(obj3["!"]);
+
+    var protoObj = {};
+    var handler = {};
+    var obj = {
+        // __proto__
+        __proto__: protoObj,
+        // Shorthand for "handler: handler"
+        handler,
+        // Methods
+        toString() {
+            // Super calls
+            return "d" + super.toString();
+        },
+        // Computed (dynamic) property names
+        ["prop_" + (() => 42)()]: 42
+    }
+</script>

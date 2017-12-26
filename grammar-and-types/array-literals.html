@@ -1,0 +1,21 @@
+<script>
+    var coffees = ["French Roast", "Colombian", "Kona"];
+
+    var fish = ["Lion", , "Angel"];
+    console.log(fish.length); // 3
+    console.log(fish[0]); // "Lion"
+    console.log(fish[1]); // undefined
+    console.log(fish[2]); // "Angel"
+
+    // trailing comma at the end of the list of elements is ignored
+    var list1= ["home", , "school",];
+    console.log(list1.length); // 3
+
+    var list2 = [, "home", , "school"];
+    console.log(list2.length); // 4
+    console.log(list2[0]); // undefined
+
+    // only the last comma is ignored
+    var list3 = [, "home", , "school", ,];
+    console.log(list3.length); // 5
+</script>

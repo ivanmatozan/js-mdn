@@ -1,0 +1,35 @@
+<script>
+    var a;
+    console.log("The value of a is " + a); // The value of a is undefined
+
+    console.log("The value of b is " + b); // The value of b is undefined
+    var b;
+
+    // console.log("The value of c is " + c); // Uncaught ReferenceError: c is not defined
+
+    let x;
+    console.log("The value of x is " + x); // The value of x is undefined
+
+    // console.log("The value of y is " + y); // Uncaught ReferenceError: y is not defined
+    // let y;
+
+    var input; // undefined value
+    if (input === undefined) {
+        console.log(true); // input value is undefined
+    } else {
+        console.log(false);
+    }
+
+    var myArray = [];
+    if (myArray[0]) {
+        console.log(true);
+    } else {
+        console.log(false); // undefined value behaves as false
+    }
+
+    var a;
+    console.log(a + 2); // Evaluates to NaN
+
+    var n = null;
+    console.log(n + 2); //  null value behaves as 0 in numeric context
+</script>
