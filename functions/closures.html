@@ -1,0 +1,30 @@
+<script>
+    var createPet = function (name) {
+        var sex;
+
+        return {
+            setName: function (newName) {
+                name = newName;
+            },
+            getName: function () {
+                return name;
+            },
+            setSex: function (newSex) {
+                if (typeof newSex === "string"
+                    && (newSex.toLocaleLowerCase() === 'male' || newSex.toLocaleLowerCase() === "female")) {
+                    sex = newSex;
+                }
+            },
+            getSex: function () {
+                return sex;
+            }
+        };
+    };
+
+    var pet = createPet("Vivie");
+    console.log(pet.getName()); // Test
+    pet.setName("Oliver");
+    pet.setSex("male");
+    console.log(pet.getName()); // Oliver
+    console.log(pet.getSex()); // male
+</script>

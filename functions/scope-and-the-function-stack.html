@@ -1,0 +1,40 @@
+<script>
+    // Recursion
+    var foo = function bar() {
+        // bar();
+        // foo();
+        // arguments.callee();
+    };
+
+    function loop(x) {
+        if (x >= 10) {
+            return;
+        }
+        loop(x + 1);
+    }
+    
+    // Nested functions and closures
+    function outside(x) {
+        function inside(y) {
+            return x + y;
+        }
+
+        return inside;
+    }
+
+    var insideFunc = outside(3); // Think of it like: give me a function that adds 3 to whatever you give it
+    var result1 = insideFunc(2); // 5
+    var result2 = outside(4)(6); // 10
+
+    // Multiply-nested functions
+    function A(x) {
+        function B(y) {
+            function C(z) {
+                console.log(x + y + z);
+            }
+            C(3);
+        }
+        B(2);
+    }
+    A(1); // logs: (1 + 2 + 3)
+</script>

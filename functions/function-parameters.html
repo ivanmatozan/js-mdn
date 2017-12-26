@@ -1,0 +1,14 @@
+<script>
+    // Default parameters
+    function multiply1(a, b = 1) {
+        return a * b;
+    }
+    console.log(multiply1(5)); // 5
+
+    // Rest parameters
+    function multiply2(multiplyer, ...theArgs) {
+        return theArgs.map(x => multiplyer * x);
+    }
+    var arr = multiply2(2, 1, 2, 3);
+    console.log(arr); // [2, 4, 6]
+</script>

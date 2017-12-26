@@ -1,0 +1,36 @@
+<script>
+    // Simple function
+    function square(number) {
+        return number * number;
+    }
+
+    // Pass by reference
+    function myFunc(obj) {
+        obj.make = "Toyota";
+    }
+
+    var myCar = {make: "Honda", model: "Accord", year: 1998};
+    var x, y;
+
+    x = myCar.make; // x is assigned with value: "Honda"
+    myFunc(myCar);
+    y = myCar.make; // y is assigned with value: "Toyota"
+
+    // Function expressions
+    var factorial = function fac(n) {
+        return n < 2 ? 1 : n * fac(n - 1);
+    };
+    console.log(factorial(3));
+
+    function map(func, arr) {
+        var result = [];
+
+        for (var i = 0; i < arr.length; i++) {
+            result[i] = func(arr[i]);
+        }
+
+        return result;
+    }
+
+    var factorialArr = map(factorial, [1, 2, 3, 4, 5]);
+</script>
