@@ -1,0 +1,19 @@
+<script>
+    function dumpProps(obj, objName) {
+        var result = "";
+
+        for (var i in obj) {
+            result += `${objName}.${i} = ${obj[i]}<br>`;
+        }
+
+        result += "<hr>";
+        return result;
+    }
+
+    var car = {
+        make: "Ford",
+        model: "Mustang"
+    };
+
+
+</script>

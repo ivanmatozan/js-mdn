@@ -1,0 +1,22 @@
+<script>
+    var x = 0;
+    var z = 0;
+
+    labelCancelLoops: // label
+    while (true) {
+        console.log("Outer loop: " + x);
+        x++;
+        z = 1;
+
+        while (true) {
+            console.log("Inner loop" + z);
+            z++;
+
+            if (z === 10 && x === 10) {
+                break labelCancelLoops; // breaks to outer loop
+            } else if (z === 10) {
+                break; // breaks inner loop
+            }
+        }
+    }
+</script>
