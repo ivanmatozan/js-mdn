@@ -1,0 +1,30 @@
+<script>
+    // throw "Error"; // String type
+    // throw 42; // Number type
+    // throw true; // Boolean type
+    // throw {toString: function () {return "I'm an object";}}; // Object
+
+    function UserException(message) {
+        this.message = message;
+        this.name = "UserException";
+    }
+
+    UserException.prototype.toString = function () {
+        return `${this.name}: ${this.message}`;
+    };
+
+    try {
+        let x = 33;
+
+        if (x > 10) {
+            throw new UserException("Value to high");
+        }
+
+        throw "String error";
+    } catch (e) {
+        console.log(e.toString());
+        // console.log(e);
+    } finally {
+        console.log("Execute finally block");
+    }
+</script>
