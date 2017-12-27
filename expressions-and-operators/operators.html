@@ -1,0 +1,103 @@
+<script>
+    // Destructuring
+    var foo = ["one", "two", "three"];
+    // without destructuring
+    var one   = foo[0];
+    var two   = foo[1];
+    var three = foo[2];
+    // with destructuring
+    var [one2, two2, three2] = foo;
+
+    // Logical operators
+    console.log(false && (3 == 4)); // false
+    console.log("Cat" && "Dog"); // "Dog"
+    console.log(false && "Dog"); //  "Dog"
+    console.log("Cat" && false); // false
+
+    console.log("Cat" || "Dog"); // "Cat"
+    console.log(false || "Cat"); // "Cat"
+    console.log("Cat" || false); // "Cat"
+    console.log(true || "Cat"); // true
+
+    console.log(!true); // false
+    console.log(!false); // true
+    console.log(!"Cat"); // false
+
+    // Comma operator
+    var x = [0,1,2,3,4,5,6,7,8,9];
+    var a = [x, x, x, x, x];
+
+    for (var i = 0, j = 9; i <= j; i++, j--) {
+        console.log('a[' + i + '][' + j + ']= ' + a[i][j]);
+    }
+
+    // delete (Unary operator)
+    z = 42;
+    var c = 43;
+    let m = 55;
+    myObj1 = {};
+    var myObj2 = {};
+    myObj2.h = 4;
+
+    console.log(delete z); // true (can delete if declared implicitly)
+    console.log(delete c); // false (cannot delete if declared with var)
+    console.log(delete m); // false (cannot delete if declared with let)
+    console.log(delete myObj1); // true (can delete if declared implicitly)
+    console.log(delete myObj2.h); // true (can delete user-defined properties)
+    console.log(delete myObj2); // false (cannot delete if declared with var)
+
+    var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'];
+
+    delete trees[3];
+    if (3 in trees) {
+        // this does not get executed
+    }
+
+    trees[0] = undefined;
+    if (0 in trees) {
+        // this gets executed
+    }
+
+    // typeof (Unary operator)
+    var myFun = new Function('5 + 2');
+    var shape = 'round';
+    var size = 1;
+    var bar = ['Apple', 'Mango', 'Orange'];
+    var today = new Date();
+
+    console.log(typeof myFun); // "function"
+    console.log(typeof shape); // "string"
+    console.log(typeof "Hello world"); // "string"
+    console.log(typeof size); // "number"
+    console.log(typeof 62); // "number"
+    console.log(typeof bar); // "object"
+    console.log(typeof today); // "object"
+    console.log(typeof true); // "boolean"
+    console.log(typeof null); // "object"
+    console.log(typeof parseInt); // "function"
+
+    // in (Relational operators)
+    var arr = ["one", "two", "three", "four"];
+    console.log(0 in trees); // true
+    console.log(6 in trees); // false
+    console.log("one" in trees); // false
+    console.log("length" in trees); // true
+
+    console.log("PI" in Math); // true
+    var myString = new String("coral");
+    console.log("length" in myString); // true
+    var car = {make: 'Honda', model: 'Accord', year: 1998};
+    console.log("make" in car); // true
+    console.log("model" in car); // true
+    console.log("test" in car); // false
+
+    // instanceof (Relational operators)
+    var theDay = new Date(1995, 12, 17);
+    if (theDay instanceof Date) {
+        // this gets executed
+    }
+</script>
+
+<!-- void (Unary operator) -->
+<a href="javascript:void(0)">Click here to do nothing</a>
+<a href="javascript:void(document.form.submit())">Click here to submit</a>
