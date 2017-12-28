@@ -1,0 +1,46 @@
+<div id="parent">
+    <div id="child">
+        <div id="grandchild"></div>
+    </div>
+</div>
+
+<script>
+    var colors = ['red', 'green', 'blue'];
+    for (var i = 0; i < colors.length; i++) {
+        console.log(colors[i]);
+    }
+
+    // if none of the elements in array evaluate to false
+    var divs = document.getElementsByTagName("div");
+    for (var j = 0, div; div = divs[j]; j++) {
+        console.log(div.id);
+    }
+    // "parent"
+    // "child"
+    // "grandchild"
+
+    colors.forEach(function (color) {
+        console.log(color);
+    });
+    // "red"
+    // "green"
+    // "blue"
+
+    var array1 = ['first', 'second', , 'fourth'];
+
+    array1.forEach(function (element) {
+        console.log(element);
+    });
+    // "first"
+    // "second"
+    // "fourth"
+
+    array2 = ['first', 'second', undefined, 'fourth'];
+    array2.forEach(function (element) {
+        console.log(element);
+    });
+    // "first"
+    // "second"
+    // undefined
+    // "fourth"
+</script>

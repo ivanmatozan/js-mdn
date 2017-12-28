@@ -1,0 +1,30 @@
+<script>
+    // Creating an array
+    var arr1 = new Array(1, 2, 3, 4, 5);
+    var arr2 = Array(1, 2, 3, 4, 5);
+    var arr3 = [1, 2, 3, 4, 5];
+
+    console.log(arr3["length"]); // 5
+
+    var arr4 = new Array(5);
+    var arr5 = Array(5);
+    var arr6 = [];
+    arr6.length = 5;
+
+    // Understanding length
+    var dogs = [];
+    dogs[30] = "Rex";
+    console.log(dogs.length); // 31
+
+    cats = ["Dusty", "Misty", "Twiggy"];
+    console.log(cats.length); // 3
+
+    cats.length = 2;
+    console.log(cats); // ["Dusty, Misty"] - Twiggy has been removed
+
+    cats.length = 0;
+    console.log(cats); // [] - the cats array is empty
+
+    cats.length = 3;
+    console.log(cats); // [undefined, undefined, undefined]
+</script>

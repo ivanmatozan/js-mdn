@@ -1,0 +1,120 @@
+<script>
+    // concat() joins two arrays and returns a new array
+    var arr1 = ["1", "2", "3"];
+    console.log(arr1.concat("a", "b", "c")); // ["1", "2", "3", "a", "b", "c"]
+
+    // join(deliminator = ",") joins all elements of an array into a string
+    var arr2 = ["Wind", "Rain", "Fire"];
+    console.log(arr2.join()); // "Wind - Rain - Fire"
+
+    // push() adds one or more elements to the end of an array and returns the resulting length of the array
+    var arr3 = ["a", "b"];
+    console.log(arr3.push("c")); // 3
+    // arr3 is now: ["a", "b", "c"]
+
+    // pop() removes the last element from an array and returns that element
+    var arr4 = ["a", "b", "c"];
+    console.log(arr4.pop()); // "c"
+    // arr4 is now: ["a", "b"]
+
+    // unshift() adds one or more elements to the front of an array and returns the new length of the array
+    var arr5 = ["a", "b"];
+    console.log(arr5.unshift("c")); // 3
+    // arr5 is now: ["c", "a", "b"]
+
+    // shift() removes the first element from an array and returns that element
+    var arr6 = ["a", "b", "c"];
+    console.log(arr6.shift()); // "a"
+    // arr6 is now: ["b", "c"]
+
+    // slice(start_index, upto_index) extracts a section of an array and returns a new array
+    var arr7 = ["a", "b", "c" ,"d", "e"];
+    console.log(arr7.slice(1, 4)); // ["b", "c", "d"]
+
+    // splice(index, count_to_remove, addElement1, addElement2, ...) removes elements from an array
+    // and (optionally) replaces them. It returns the items which were removed from the array
+    var arr8 = [1, 2, 3, 4, 5];
+    console.log(arr8.splice(1, 3, "a", "b", "c", "d")); // [2, 3, 4]
+    // arr8 is now [1, "a", "b", "c", "d", 5]
+
+    // reverse()
+    var arr9 = [1, 2, 3, 4, 5];
+    console.log(arr9.reverse()); // [5, 4, 3, 2, 1]
+
+    // sort()
+    var arr10 = [5, 3, 9, 4, 1];
+    console.log(arr10.sort()); // [1, 3, 4, 5, 9]
+
+    // sort() can also take a callback function to determine how array elements are compared
+    var arr11 = ["Wind", "Rain", "Fire"];
+    // Sort by the last letter of a string
+    var sortFun = function (a, b) {
+        if (a[a.length - 1] < b[b.length - 1]) {
+            return -1;
+        }
+        if (a[a.length - 1] > b[b.length - 1]) {
+            return 1;
+        }
+        if (a[a.length - 1] == b[b.length - 1]) {
+            return 0;
+        }
+    };
+    console.log(arr11.sort(sortFun)); // ["Wind", "Fire", "Rain"]
+
+    // indexOf(searchElement[, fromIndex]) searches the array for searchElement
+    // and returns the index of the first match
+    var arr12 = ["a", "b", "a", "b", "a"];
+    console.log(arr12.indexOf("b")); // 1
+    console.log(arr12.indexOf("b", 2)); // 3
+    console.log(arr12.indexOf("z")); // -1
+
+    //lastIndexOf(searchElement[, fromIndex]) works like indexOf,
+    // but starts at the end and searches backwards
+    var arr13 = ["a", "b", "c", "d", "a", "b"];
+    console.log(arr13.lastIndexOf("b")); // 5
+    console.log(arr13.lastIndexOf("b", 4)); // 1
+    console.log(arr13.lastIndexOf("z")); // -1
+
+    // forEach(callback[, thisObject]) executes callback on every array item and returns undefined
+    var arr14 = ["a", "b", "c"];
+    arr14.forEach(function (element) {
+        console.log(element);
+    });
+    // "a", "b", "c"
+
+    // map(callback[, thisObject]) returns a new array of the return value
+    // from executing callback on every array item
+    var arr15 = ["a", "b", "c"];
+    console.log(arr15.map(function (item) {
+        return item.toUpperCase();
+    }));
+    // ["A", "B", "C"]
+
+    var arr16 = [1, 2, 3];
+    var arr17 = [1, "2", 3];
+    var arr18 = ["1", "2", "3"];
+
+    function isNumber(value) {
+        return typeof value === "number";
+    }
+
+    // every(callback[, thisObject]) returns true if callback
+    // returns true for every item in the array
+    console.log(arr16.every(isNumber)); // true
+    console.log(arr17.every(isNumber)); // false
+
+    // some(callback[, thisObject]) returns true if callback
+    // returns true for at least one item in the array
+    console.log(arr16.some(isNumber)); // true
+    console.log(arr17.some(isNumber)); // true
+    console.log(arr18.some(isNumber)); // false
+
+    // reduce(callback[, initialValue]) applies callback(firstValue, secondValue)
+    // to reduce the list of items down to a single value and returns that value
+    // reduceRight(callback[, initialValue]) works like reduce(), but starts with the last element
+    var arr19 = [10, 20, 30];
+    var total = arr19.reduce(function (first, second) {
+        return first + second;
+    }, 0);
+    console.log(total); // 60
+</script>
