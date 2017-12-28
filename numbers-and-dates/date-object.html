@@ -1,0 +1,38 @@
+<script>
+    console.log(Date()); // Current date and time
+
+    var today = new Date(); // Current date and time
+
+    // var xmas95 = new Date("December 25, 1995 13:30:00");
+    // var xmas95 = new Date(1995, 11, 25);
+    var xmas95 = new Date(1995, 11, 25, 9, 30, 0);
+    console.log(xmas95.getMonth()); // 11
+    console.log(xmas95.getTime()); // timestamp (ms)
+
+    var endYear = new Date(1995, 11, 31, 23, 59, 59, 999);
+    endYear.setFullYear(today.getFullYear()); // Set year to this year
+    var msPerDay = 24 * 60 * 60 * 1000; // Number of millisecond per day
+    var daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
+    daysLeft = Math.round(daysLeft); // Days left in year
+
+    var IPODate = new Date();
+    IPODate.setTime(Date.parse("Aug 9, 1995"));
+    
+    function clock() {
+        var time = new Date();
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        var result = "" + ((hour > 12) ? hour - 12 : hour);
+
+        if (hour == 0) {
+            result = "12";
+        }
+
+        result += ((minute < 10) ? "0:" : ":") + minute;
+        result += ((second < 10) ? "0:" : ":") + second;
+        result += (hour >= 12) ? " P.M." : " A.M.";
+
+        return result;
+    }
+</script>
