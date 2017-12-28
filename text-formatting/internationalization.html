@@ -1,0 +1,32 @@
+<script>
+    // Intl.DateTimeFormat
+    var today = new Date();
+
+    var options = {
+        year: "2-digit",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short"
+    };
+
+    var americanDateTime = new Intl.DateTimeFormat("en-US", options).format;
+    console.log(americanDateTime(today));
+
+    // Intl.NumberFormat
+    var gasPrice = new Intl.NumberFormat("hr-HR", {
+        style: "currency",
+        currency: "HRK",
+        minimumFractionDigits: 3
+    });
+    console.log(gasPrice.format(5.259)); // 5,259 HRK
+
+    // Intl.Collator
+    var names = ["Hochberg", "Hönigswald", "Holzman"];
+    var germanPhonebook = new Intl.Collator("de-DE-u-co-phonebk");
+    var germanDictionary = new Intl.Collator('de-DE-u-co-dict');
+
+    console.log(names.sort(germanPhonebook.compare).join(", ")); // "Hochberg, Hönigswald, Holzman"
+    console.log(names.sort(germanDictionary.compare).join(', ')); // "Hochberg, Holzman, Hönigswald"
+</script>

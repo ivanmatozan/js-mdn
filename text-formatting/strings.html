@@ -1,0 +1,18 @@
+<script>
+    var s1 = "foo"; // Creates a string literal value
+
+    var s2 = new String("bar"); // Creates a String object
+    console.log(s2); // {'0': 'b', '1': 'a', '2': 'r', 'length': 3}
+
+    var myString = "Hello, World!";
+    console.log(myString.length); // 13
+    myString[0] = "L"; // This has no effect
+    console.log(myString[0]); // "H"
+
+    console.log(myString.charAt(4)); // "o"
+
+    // Template literals
+    var a = 5;
+    var b = 10;
+    console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+</script>
