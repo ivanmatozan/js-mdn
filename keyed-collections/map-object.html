@@ -1,0 +1,21 @@
+<script>
+    var sayings = new Map();
+    sayings.set("dog", "woof");
+    sayings.set("cat", "meow");
+    sayings.set("elephant", "toot");
+
+    console.log(sayings.size); // 3
+    console.log(sayings.get("fox")); // undefined
+    console.log(sayings.has("dog")); // true
+    sayings.delete("dog");
+    console.log(sayings.has("dog")); // false
+
+    for (var [key, value] of sayings) {
+        console.log(key + " goes " + value);
+    }
+    // "cat goes meow"
+    // "elephant goes toot"
+
+    sayings.clear();
+    console.log(sayings.size); // 0
+</script>

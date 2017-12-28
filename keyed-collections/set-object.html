@@ -1,0 +1,23 @@
+<script>
+    var mySet = new Set();
+    mySet.add(1);
+    mySet.add("Some text");
+    mySet.add("foo");
+
+    console.log(mySet.has(1)); // true
+    mySet.delete("foo");
+    console.log(mySet.size); // 2
+
+    for (let item of mySet) {
+        console.log(item);
+    }
+    // 1
+    // "Some text"
+
+    // Converting between Array and Set
+    var a1 = Array.from(mySet);
+    var a2 = [...mySet];
+
+    // Any duplicate elements from an Array are deleted when converting
+    var mySet2 = new Set([1, 2, 3, 4]);
+</script>
