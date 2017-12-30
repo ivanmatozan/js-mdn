@@ -1,0 +1,35 @@
+<script>
+    function Employee(name, dept) {
+        this.name = name || "";
+        this.dept = dept || "general";
+    }
+    
+    function Manager(name, dept, reports) {
+        this.base = Employee;
+        this.base(name, dept);
+        this.reports = reports || [];
+    }
+    Manager.prototype = Object.create(Employee.prototype);
+
+    function WorkBee(name, dept, projs) {
+        Employee.call(this, name, dept);
+        this.projects = projs || [];
+    }
+    WorkBee.prototype = Object.create(Employee.prototype);
+    
+    function SalesPerson(name, dept, quota) {
+        WorkBee.call(this, name, "sales");
+        this.quota = quota || 100;
+    }
+    SalesPerson.prototype = Object.create(WorkBee.prototype);
+
+    function Engineer(name, projs, mach) {
+        WorkBee.call(this, name, "engineering", projs);
+        this.machine = mach || "";
+    }
+    Engineer.prototype = Object.create(WorkBee.prototype);
+
+    var mark = new WorkBee;
+    var ivan = new Manager("Ivan", "office", ["report1", "report2"]);
+    var jane = new Engineer("Doe, Jane", ["navigator", "javascript"], "belau");
+</script>
