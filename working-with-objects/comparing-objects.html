@@ -1,0 +1,11 @@
+<script>
+    var fruit = {name: "apple"};
+    var fruitBear = {name: "apple"};
+    var fruit2 = fruit;
+    fruit2.name = "grape";
+
+    console.log(fruit == fruitBear); // false
+    console.log(fruit === fruitBear); // false
+    console.log(fruit == fruit2); // true
+    console.log(fruit === fruit2); // true
+</script>

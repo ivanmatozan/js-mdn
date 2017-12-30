@@ -1,0 +1,32 @@
+<script>
+    var obj = {
+        val: 7,
+        get getVal() {
+            return this.val + 1;
+        },
+        set setVal(val) {
+            this.val = val - 1;
+        }
+    };
+
+    console.log(obj.val); // 8
+    console.log(obj.getVal); // 7
+    obj.setVal = 10  ;
+    console.log(obj.val); // 9
+
+    var d = Date.prototype;
+    Object.defineProperty(d, "year", {
+        get: function () {
+            return this.getFullYear();
+        },
+        set: function (y) {
+            this.setFullYear(y);
+        }
+    });
+
+    var now = new Date();
+    console.log(now.year); // 2017
+    now.year = 2001;
+    console.log(now.year); // 2001
+    console.log(now); // Sun Dec 30 2001 09:52:31 GMT+0100 (CET)
+</script>
