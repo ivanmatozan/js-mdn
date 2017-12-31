@@ -1,0 +1,79 @@
+<script>
+    function makePerson(first, last) {
+        return {
+            first,
+            last,
+            fullName: function () {
+                return this.first + " " + this.last;
+            },
+            fullNameReversed: function () {
+                return this.last + ", " + this.first;
+            }
+        };
+    }
+
+    var s = makePerson("Simon", "Willison");
+    console.log(s.fullName()); // "Simon Willison"
+    console.log(s.fullNameReversed()); // "Willison, Simon"
+
+    var fullName = s.fullName;
+    console.log(fullName()); // undefined undefined
+    
+    function Person(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+
+    Person.prototype.fullName = function () {
+        return this.first + " " + this.last;
+    };
+
+    Person.prototype.fullNameReversed = function () {
+        return this.last + ", " + this.first;
+    };
+
+    var p1 = new Person("Simon", "Willison");
+    // console.log(p1.firstNameCaps()); // TypeError on line 1: s.firstNameCaps is not a function
+    console.log(p1.toString()); // "[object Object]"
+
+    Person.prototype.firstNameCaps = function () {
+        return this.first.toUpperCase();
+    };
+
+    Person.prototype.toString = function () {
+        return "<Person: " + this.fullName() + ">";
+    };
+
+    console.log(p1.firstNameCaps()); // "SIMON"
+    console.log(p1.toString()); // "<Person: Simon Willison>"
+
+    var name = "Simon";
+    // console.log(name.reversed()); // TypeError on line 1: name.reversed is not a function
+
+    // Add to to built in objects prototype
+    String.prototype.reversed = function () {
+        var r = "";
+        for (var i = this.length - 1; i >= 0; i--) {
+            r += this[i];
+        }
+        return r;
+    };
+
+    console.log(name.reversed()); // "nomiS"
+    console.log("This can now be reversed".reversed()); // "desrever eb won nac sihT"
+
+    function trivialNew(constructor, ...args) {
+        var o = {}; // Create an object
+        constructor.apply(o, args);
+        return o;
+    }
+
+    var bill = trivialNew(Person, "William", "Orange");
+
+    function lastNameCaps() {
+        return this.last.toUpperCase();
+    }
+
+    var p2 = new Person("Simon", "Willison");
+    console.log(lastNameCaps.call(p2)); // "WILLISON"
+</script>

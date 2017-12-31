@@ -1,0 +1,45 @@
+<body>
+    <h1>Title</h1>
+    <p>Para 1</p>
+    <p>Para 2</p>
+</body>
+<script>
+    function add() {
+        var sum = 0;
+
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+
+        return sum;
+    }
+
+    console.log(add(1, 2, 3, 15, 66, 87)); // 174
+
+    function avg(...args) {
+        var sum = 0;
+
+        for (let value of args) {
+            sum += value;
+        }
+
+        return sum / args.length;
+    }
+
+    console.log(avg(2, 3, 4, 5)); // 3.5
+    console.log(avg.apply(null, [2, 3, 4, 5])); // 3.5
+
+    var charsInBody = (function counter(elm) {
+        if (elm.nodeType == 3) {
+            return elm.nodeValue.length;
+        }
+
+        var count = 0;
+
+        for (var i = 0, child; child = elm.childNodes[i]; i++) {
+            count += counter(child);
+        }
+
+        return count;
+    })(document.body);
+</script>
